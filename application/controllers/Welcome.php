@@ -22,7 +22,22 @@ class Welcome extends CI_Controller {
 	{
 		$data=array();
 		$data['slider']=$this->load->view('pages/slider','',true);
-
+		$data['featured_item']=$this->load->view('pages/featured_item','',true);
+		$data['category_tab']=$this->load->view('pages/category_tab','',true);
+		$data['home_left_sidebar']=$this->load->view('pages/home_left_sidebar','',true);
+		$data['recommended_item']=$this->load->view('pages/recommended_item','',true);
 		$this->load->view('master',$data);
 	}
+	public function accounts(){
+	$data=array();
+		$data['slider']=$this->load->view('pages/slider','',true);
+		$data['featured_item']=$this->load->view('pages/featured_item','',true);
+		$data['category_tab']="This is Accont page content here";
+		$data['home_left_sidebar']=$this->load->view('pages/home_left_sidebar','',true);
+		$data['recommended_item']=$this->load->view('pages/recommended_item','',true);
+		$this->load->view('master',$data);	
+	}
+	
+
+
 }
