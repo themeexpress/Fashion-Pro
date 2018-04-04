@@ -20,6 +20,9 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('hello');
+		$data=array();
+		$data['slider']=$this->load->view('pages/slider','',true);
+
+		$this->load->view('master',$data);
 	}
 }
