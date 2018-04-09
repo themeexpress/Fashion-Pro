@@ -25,13 +25,20 @@ class Admin extends CI_Controller {
 	}
 
 	public function admin_login_check(){
-		$user_email=$this->input->post('user_email',TRUE);
-		$user_password=$this->input->post('user_password',TRUE);
-		$encrypted_password=md5($user_password);
-		$this->load->model('admin_model');
-		$user_detail=$this->admin_model->get_user_data($user_email);
 
-		if ($encrypted_password==$user_detail->user_password) {
+		$admin_email=$this->input->post('admin_email',TRUE);
+		$admin_password=$this->input->post('admin_password',TRUE);		
+
+		$this->load->model('admin_model');
+		
+		$query=$this->admin_model->check_admin_login_info($admin_email,$admin_password);
+		// echo "<pre>";
+		// print_r($query);
+		// echo "<pre>";
+		// exit();
+		
+
+		if ($query) {
 			$this->load->view('admin/adminmaster');
 		}else{
 			$data['error_message']='Incorrect Email or Password';

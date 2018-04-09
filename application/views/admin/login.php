@@ -55,20 +55,19 @@
 						<a href="#"><i class="halflings-icon cog"></i></a>
 					</div>
 					<h2>Login to your account</h2>
-					<h5 class=".text-danger"><?php if(isset($error_message)){
+					<h5 class="text-center text-error"><?php if(isset($error_message)){
 						echo $error_message;}?></h5>
-					<form class="form-horizontal" action="<?php echo base_url();?>admin-login-verify" method="post">
-						<fieldset>
-							
+					<form class="form-horizontal" action="<?php echo base_url();?>admin-login-check" method="post">
+						<fieldset>							
 							<div class="input-prepend" title="Useremail">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input class="input-large span10" name="user_email" id="user_email" type="text" placeholder="type User Email"/>
+								<input class="input-large span10" name="admin_email" id="admin_email" type="text" placeholder="Type User Email"/>
 							</div>
 							<div class="clearfix"></div>
 
 							<div class="input-prepend" title="Password">
 								<span class="add-on"><i class="halflings-icon lock"></i></span>
-								<input class="input-large span10" name="user_password" id="user_password" type="password" placeholder="type password"/>
+								<input class="input-large span10" name="admin_password" id="admin_password" type="password" placeholder="Type password"/>
 							</div>
 							<div class="clearfix"></div>
 							
