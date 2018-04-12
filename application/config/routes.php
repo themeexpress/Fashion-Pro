@@ -4,17 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*
 | -------------------------------------------------------------------------
 | URI ROUTING
-| -------------------------------------------------------------------------
-| This file lets you re-map URI requests to specific controller functions.
-|
-| Typically there is a one-to-one relationship between a URL string
-| and its corresponding controller class/method. The segments in a
-| URL normally follow this pattern:
-|
-|	example.com/class/method/id/
-|
-| In some instances, however, you may want to remap this relationship
-| so that a different class/function is called than the one
+
 | corresponding to the URL.
 |
 | Please see the user guide for complete details:
@@ -52,6 +42,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['admin-login']='admin';
 $route['admin-login-check']='admin/admin_login_check';
 $route['home-page']='home';
+//Super Admin area secure Dashboard
+$route['dashboard']='Super_admin/index';
+$route['logout']='Super_admin/logout';
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

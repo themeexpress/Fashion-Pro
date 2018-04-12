@@ -55,8 +55,15 @@
 						<a href="#"><i class="halflings-icon cog"></i></a>
 					</div>
 					<h2>Login to your account</h2>
-					<h5 class="text-center text-error"><?php if(isset($error_message)){
-						echo $error_message;}?></h5>
+					<h5 class="text-center text-error">
+                                        <?php 
+                                                $message=$this->session->userdata('error_message');
+                                                if($message){
+                                                   echo $message;
+                                                   $this->session->unset_userdata('error_message');
+                                                }
+					?>
+                                        </h5>
 					<form class="form-horizontal" action="<?php echo base_url();?>admin-login-check" method="post">
 						<fieldset>							
 							<div class="input-prepend" title="Useremail">

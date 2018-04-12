@@ -2,46 +2,39 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
-
 	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
+        public function __construct() {
+           parent::__construct();
+           $admin_id=$this->session->userdata('admin_id');
+           if($admin_id!=NULL){
+               redirect('/dashboard');
+           }        
+
+       }
+	public function index()	{
 		
 		$this->load->view('admin/login');
 	}
 
 	public function admin_login_check(){
-
 		$admin_email=$this->input->post('admin_email',TRUE);
-		$admin_password=$this->input->post('admin_password',TRUE);		
-
-		$this->load->model('admin_model');
-		
+		$admin_password=$this->input->post('admin_password',TRUE);
+		$this->load->model('admin_model');		
 		$query=$this->admin_model->check_admin_login_info($admin_email,$admin_password);
-		// echo "<pre>";
-		// print_r($query);
-		// echo "<pre>";
-		// exit();
-		
-
+		//check if data is available or not
+                $sdata=array();
 		if ($query) {
-			$this->load->view('admin/adminmaster');
+                    $sdata['admin_id']=$query->admin_id;
+                    $sdata['admin_name']=$query->admin_name;
+                    $this->session->set_userdata($sdata);
+                    redirect('/dashboard');
+                    //if not available the redirect with error message
 		}else{
 			$data['error_message']='Incorrect Email or Password';
+			$this->session->set_userdata($data);			
 			$this->load->view('admin/login',$data);
 
 		}
