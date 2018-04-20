@@ -4,32 +4,32 @@
 					<a href="index.html">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="#">Category</a></li>
+				<li><a href="#">Brand</a></li>
 			</ul>
 
 			<div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="icon-tasks"></i><span class="break"></span>Category</h2>						
+						<h2><i class="icon-tasks"></i><span class="break"></span>Brand</h2>						
 					</div>
 					<div class="box-content">
 						<table class="table table-striped table-bordered bootstrap-datatable datatable">
 						  <thead>
 							  <tr>
-								  <th>Category Name</th>
-								  <th>Category Description</th>					  
+								  <th>Brand Name</th>
+								  <th>Brand Description</th>				  
 								  <th>Status</th>
 								  <th>Actions</th>
 							  </tr>
 						  </thead>   
 						  <tbody>
 						  	<?php 
-						  	 foreach ($all_category_info as $value_all_category_info) {						  	 	
+						  	 foreach ($all_brand_info as $value_all_brand_info) {						  	 	
 						  	?>
 							<tr>
-								<td><?php echo $value_all_category_info->category_name;?></td>
-								<td class="center"><?php echo $value_all_category_info->category_name;?></td>
-								<?php if ($value_all_category_info->publication_status==1){
+								<td><?php echo $value_all_brand_info->brand_name;?></td>
+								<td class="center"><?php echo $value_all_brand_info->brand_description;?></td>
+								<?php if ($value_all_brand_info->publication_status==1){
 								?>
 								<td class="center">
 									<span class="label label-success">Published</span>
