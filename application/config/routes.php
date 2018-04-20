@@ -46,7 +46,10 @@ $route['home-page']='home';
 //Super Admin area secure Dashboard
 $route['dashboard']='Super_admin/index';
 $route['logout']='Super_admin/logout';
+//ADD CATEGORY
 $route['add-category']='Super_admin/add_category';
+//SAVE CATEGORY
+$route['save-category']='Super_admin/save_category';
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -19,13 +19,23 @@
 							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
 						</div>
 					</div>
+					<h3 style="color:green">
+						<?php 
+						$message=$this->session->userdata('message');
+						if ($message) {
+							echo $message;
+							$this->session->unset_userdata('message');
+						}
+
+						?>
+					</h3>
 					<div class="box-content">
-						<form class="form-horizontal">
+						<form class="form-horizontal" action="<?php echo base_url();?>save-category" method="POST">
 						  <fieldset>
 							<div class="control-group">
 							  <label class="control-label" for="typeahead">Category Name </label>
 							  <div class="controls">
-								<input type="text" class="span6 typeahead" name="category_name" id="category_id">								
+								<input type="text" class="span6 typeahead" name="category_name" id="category_name">								
 							  </div>
 							</div>							
          
@@ -36,17 +46,17 @@
 							  </div>
 							</div>
 							<div class="control-group">
-							  <label class="control-label" for="typeahead">Publication Status Name </label>
+							  <label class="control-label" for="typeahead">Publication Status</label>
 							  <div class="controls">
 								<select name="publication_status">
 									<option>Select Option</option>
-									<option value="0">Publish</option>
-									<option value="1">Unpublish</option>
+									<option value="1">Published</option>
+									<option value="0">Unpublished</option>
 								</select>								
 							  </div>
 							</div>
 							<div class="form-actions">
-							  <button type="submit" class="btn btn-primary" name="cat_submit">Save changes</button>
+							  <button type="submit" class="btn btn-primary" name="cat_submit">Save Category</button>
 							  <button type="reset" class="btn">Cancel</button>
 							</div>
 						  </fieldset>
