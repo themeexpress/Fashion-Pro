@@ -36,7 +36,7 @@
 								</td>
 								<?php }else{?>
 								<td class="center">
-									<span class="label label-success">Unpublished</span>
+									<span class="label label-danger">Unpublished</span>
 								</td>
 								<?php }?>
 								<td class="center">
