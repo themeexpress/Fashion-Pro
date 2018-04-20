@@ -42,9 +42,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['admin-login']='admin';
 $route['admin-login-check']='admin/admin_login_check';
 $route['home-page']='home';
+
 //Super Admin area secure Dashboard
 $route['dashboard']='Super_admin/index';
 $route['logout']='Super_admin/logout';
+$route['add-category']='Super_admin/add_category';
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

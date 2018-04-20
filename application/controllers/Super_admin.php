@@ -13,7 +13,9 @@ class Super_admin extends CI_Controller {
         
     }
     public function index(){
-        $this->load->view('admin/adminmaster');
+        $data=array();
+        $data['admin_main_contents']=$this->load->view('admin/pages/admin_contents.php','',true);
+        $this->load->view('admin/adminmaster',$data);
     }
     public function logout(){
         $this->session->unset_userdata('admin_id');
@@ -22,5 +24,10 @@ class Super_admin extends CI_Controller {
         $data['error_message']="You have Successfully Logout";
         $this->session->set_userdata($data);
         redirect('/admin-login');
+    }
+    public function add_category(){
+       $data=array();
+        $data['admin_main_contents']=$this->load->view('admin/pages/add_category.php','',true);
+        $this->load->view('admin/adminmaster',$data); 
     }
 }

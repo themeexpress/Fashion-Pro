@@ -10,7 +10,7 @@ class Admin extends CI_Controller {
            parent::__construct();
            $admin_id=$this->session->userdata('admin_id');
            if($admin_id!=NULL){
-               redirect('/dashboard');
+               redirect('dashboard');
            }        
 
        }
