@@ -50,6 +50,20 @@ $route['logout']='Super_admin/logout';
 $route['add-category']='Super_admin/add_category';
 //SAVE CATEGORY
 $route['save-category']='Super_admin/save_category';
+
+//manage category
+$route['manage-category']='Super_admin/manage_category';
+
+//Add brand
+$route['add-brand']="Super_admin/add_brand";
+//Manage Brand
+$route['manage-brand']='Super_admin/manage_brand';
+//Save Brand
+$route['save-brand']='Super_admin/save_brand_info';
+
+
+
+
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

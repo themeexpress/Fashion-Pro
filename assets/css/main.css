@@ -69,6 +69,7 @@ a#scrollUp i{
 
 .header_top {
   background: none repeat scroll 0 0 #F0F0E9;
+  display: none;
 }
 
 .contactinfo ul li:first-child{
@@ -221,8 +222,10 @@ a#scrollUp i{
 
 
 .header-bottom {
-  padding-bottom: 30px;
-  padding-top: 30px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  background: #1d1513;
+  margin-bottom: 40px;
 }
 
 .navbar-collapse.collapse{
@@ -232,6 +235,7 @@ a#scrollUp i{
 .mainmenu ul li{
   padding-right: 15px;
   padding-left: 15px;
+  padding-top:5px;
 }
 
 .mainmenu ul li:first-child{
@@ -239,7 +243,7 @@ a#scrollUp i{
 }
 
 .mainmenu ul li a {
-	color: #696763;
+	color: #fff;
 	font-family: 'Roboto', sans-serif;
 	font-size: 17px;
 	font-weight: 300;
@@ -249,7 +253,7 @@ a#scrollUp i{
 
 .mainmenu ul li a:hover, .mainmenu ul li a.active,  .shop-menu ul li a.active{
 	background:none;
-	color:#fdb45e;
+	color:#fe980f;
 }
 
 .search_box input {
@@ -262,10 +266,10 @@ a#scrollUp i{
   height: 35px;
   outline: medium none;
   padding-left: 10px;
-  width: 155px;
+  width: 200px;
   background-image: url(../images/home/searchicon.png);
   background-repeat: no-repeat;
-  background-position: 130px;
+  background-position: 180px;
 }
 
 
@@ -891,7 +895,7 @@ h2.title {
 }
 
 .product-overlay {
-  background:#FE980F;
+  background:rgba(254, 152, 15, 0.70);
   top: 0;
   display: none;
   height: 0;
