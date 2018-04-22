@@ -40,13 +40,19 @@
 								</td>
 								<?php }?>
 								<td class="center">
-									<a class="btn btn-success" href="#">
-										<i class="halflings-icon white zoom-in"></i> 
+									 <?php if($value_all_brand_info->publication_status==1){?>
+									<a class="btn btn-danger" href="<?php echo base_url()?>unpublished-brand/<?php echo $value_all_brand_info->brand_id;?>">
+										<i class="halflings-icon white thumbs-down"></i> 
 									</a>
+									<?php }else{ ?>
+									<a class="btn btn-success" href="<?php echo base_url()?>published-brand/<?php echo $value_all_brand_info->brand_id;?>">
+										<i class="halflings-icon white thumbs-up"></i> 
+									</a>
+									<?php } ?>
 									<a class="btn btn-info" href="#">
 										<i class="halflings-icon white edit"></i>  
-									</a>
-									<a class="btn btn-danger" href="#">
+									</a>									
+									<a class="btn btn-danger" href="<?php echo base_url()?>delete-brand/<?php echo $value_all_brand_info->brand_id;?>">
 										<i class="halflings-icon white trash"></i> 
 									</a>
 								</td>

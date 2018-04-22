@@ -39,6 +39,26 @@ class Super_admin_model extends CI_model {
 		$this->db->insert('tbl_brand',$data);
 
 	}
+	//Unpublished Category 
+	public function unpublished_category_info($category_id){
+		$this->db->set('publication_status',0);		
+		$this->db->where('category_id',$category_id);
+		$this->db->update('tbl_category');
+
+	}
+	//Published a category
+	public function published_category_info($category_id){
+		$this->db->set('publication_status',1);		
+		$this->db->where('category_id',$category_id);
+		$this->db->update('tbl_category');
+	}
+	//Delete category
+	public function delete_category_info($category_id){
+		$this->db->where('category_id', $category_id);
+		$this->db->delete('tbl_category');
+	}
+
+
 	//Get all published Brands
 	public function get_published_brand_info(){
 		$this->db->select('*');
@@ -54,6 +74,26 @@ class Super_admin_model extends CI_model {
 		$this->db->from('tbl_brand');		
 		$query_result=$this->db->get();		
 		return $query_result->result();
+	}
+
+	//Unpublished brand
+	public function unpublished_brand_info($brand_id){
+		$this->db->set('publication_status',0);
+		$this->db->where('brand_id',$brand_id);
+		$this->db->update('tbl_brand');
+	}
+	
+	//Published brand
+	public function published_brand_info($brand_id){
+		$this->db->set('publication_status',1);
+		$this->db->where('brand_id',$brand_id);
+		$this->db->update('tbl_brand');
+	}
+
+	//Detete a brand
+	public function delete_brand_info($brand_id){
+		$this->db->where('brand_id', $brand_id);
+		$this->db->delete('tbl_brand');
 	}
 
 

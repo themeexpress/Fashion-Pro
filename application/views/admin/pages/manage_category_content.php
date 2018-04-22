@@ -17,7 +17,7 @@
 						  <thead>
 							  <tr>
 								  <th>Category Name</th>
-								  <th>Category Description</th>					  
+								  <th>Category Description</th>				  
 								  <th>Status</th>
 								  <th>Actions</th>
 							  </tr>
@@ -36,17 +36,23 @@
 								</td>
 								<?php }else{?>
 								<td class="center">
-									<span class="label label-success">Unpublished</span>
+									<span class="label label-danger">Unpublished</span>
 								</td>
 								<?php }?>
 								<td class="center">
-									<a class="btn btn-success" href="#">
-										<i class="halflings-icon white zoom-in"></i> 
+									<?php if($value_all_category_info->publication_status==1){?>
+									<a class="btn btn-danger" href="<?php echo base_url()?>unpublish-category/<?php echo $value_all_category_info->category_id;?>">
+										<i class="halflings-icon white thumbs-down"></i> 
 									</a>
+									<?php }else{?>
+									<a class="btn btn-success" href="<?php echo base_url()?>publish-category/<?php echo $value_all_category_info->category_id;?>">
+										<i class="halflings-icon white thumbs-up"></i> 
+									</a>
+									<?php }?>
 									<a class="btn btn-info" href="#">
 										<i class="halflings-icon white edit"></i>  
 									</a>
-									<a class="btn btn-danger" href="#">
+									<a class="btn btn-danger" href="<?php echo base_url()?>delete-category/<?php echo $value_all_category_info->category_id;?>">
 										<i class="halflings-icon white trash"></i> 
 									</a>
 								</td>

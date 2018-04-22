@@ -26,7 +26,7 @@ class Super_admin extends CI_Controller {
         $this->session->set_userdata($data);
         redirect('/admin-login');
     }
-    //category
+    //Add category
     public function add_category(){
        $data=array();
         $data['admin_main_contents']=$this->load->view('admin/pages/add_category.php','',true);
@@ -48,7 +48,22 @@ class Super_admin extends CI_Controller {
         $data['admin_main_contents']=$this->load->view('admin/pages/manage_category_content.php',$data,true);
         $this->load->view('admin/adminmaster',$data); 
     }
-
+    //unpublish a category
+    public function unpublish_category($category_id){
+       $this->Super_admin_model->unpublished_category_info($category_id);
+       redirect('/manage-category');
+        
+    }
+    //published a category
+    public function publish_category($category_id){
+    $this->Super_admin_model->published_category_info($category_id);
+    redirect('/manage-category');        
+    }
+    //Detele a category
+    public function delete_category($category_id){
+        $this->Super_admin_model->delete_category_info($category_id);
+        redirect('/manage-category'); 
+    }
 
 
     // Brand
@@ -73,6 +88,22 @@ class Super_admin extends CI_Controller {
         $data['all_brand_info']=$this->Super_admin_model->show_all_brand_info();
         $data['admin_main_contents']=$this->load->view('admin/pages/manage_brand_content.php',$data,true);
         $this->load->view('admin/adminmaster',$data); 
+    }
+    //unpublished Brand
+    public function unpublished_brand($brand_id){
+        $this->Super_admin_model->unpublished_brand_info($brand_id);
+        redirect('manage-brand');
+
+    }
+    //publised a brand
+    public function published_brand($brand_id){
+        $this->Super_admin_model->published_brand_info($brand_id);
+        redirect('manage-brand');
+    }
+    public function delete_brand($brand_id){
+        $this->Super_admin_model->delete_brand_info($brand_id);
+        redirect('manage-brand');
+
     }
 
 }
