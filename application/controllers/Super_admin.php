@@ -59,10 +59,18 @@ class Super_admin extends CI_Controller {
     $this->Super_admin_model->published_category_info($category_id);
     redirect('/manage-category');        
     }
+
     //Detele a category
     public function delete_category($category_id){
         $this->Super_admin_model->delete_category_info($category_id);
         redirect('/manage-category'); 
+    }
+    //Edit Category    
+    public function edit_category(){        
+        $data=array();
+        // $data['all_category_info']=$this->Super_admin_model->show_all_category_info();
+        $data['admin_main_contents']=$this->load->view('admin/pages/edit_category.php','',true);
+        $this->load->view('admin/adminmaster',$data); 
     }
 
 

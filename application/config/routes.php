@@ -20,24 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	$route['default_controller'] = 'welcome';
 |
 | This route indicates which controller class should be loaded if the
-| URI contains no data. In the above example, the "welcome" class
-| would be loaded.
-|
-|	$route['404_override'] = 'errors/page_missing';
-|
-| This route will tell the Router which controller/method to use if those
-| provided in the URL cannot be matched to a valid route.
-|
-|	$route['translate_uri_dashes'] = FALSE;
-|
-| This is not exactly a route, but allows you to automatically route
-| controller and method names that contain dashes. '-' isn't a valid
-| class or method name character, so it requires translation.
-| When you set this option to TRUE, it will replace ALL dashes in the
-| controller and method URI segments.
-|
-| Examples:	my-controller/index	-> my_controller/index
-|		my-controller/my-method	-> my_controller/my_method
+
 */
 $route['admin-login']='admin';
 $route['admin-login-check']='admin/admin_login_check';
@@ -63,6 +46,8 @@ $route['unpublish-category/(.+)']='Super_admin/unpublish_category/$1';
 $route['publish-category/(.+)']='Super_admin/publish_category/$1';
 //delete category
 $route['delete-category/(.+)']='Super_admin/delete_category/$1';
+//edite category
+$route['edit-category']='Super_admin/edit_category';
 
 //Add brand
 $route['add-brand']="Super_admin/add_brand";
