@@ -27,7 +27,7 @@
 						  <thead>
 							  <tr>
 								  <th>Category Name</th>
-								  <th>Category Description</th>				  
+								  <th>Category Description</th>	  
 								  <th>Status</th>
 								  <th>Actions</th>
 							  </tr>
@@ -59,7 +59,7 @@
 										<i class="halflings-icon white thumbs-up"></i> 
 									</a>
 									<?php }?>
-									<a class="btn btn-info" href="<?php echo base_url()?>edit-category">
+									<a class="btn btn-info" href="<?php echo base_url()?>edit-category/<?php echo $value_all_category_info->category_id;?>">
 										<i class="halflings-icon white edit"></i>  
 									</a>
 									<a class="btn btn-danger" href="<?php echo base_url()?>delete-category/<?php echo $value_all_category_info->category_id;?>" onclick="return checkDelete();">

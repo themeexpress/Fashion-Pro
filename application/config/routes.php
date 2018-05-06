@@ -4,24 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*
 | -------------------------------------------------------------------------
 | URI ROUTING
-
-| corresponding to the URL.
-|
-| Please see the user guide for complete details:
-|
-|	https://codeigniter.com/user_guide/general/routing.html
-|
-| -------------------------------------------------------------------------
-| RESERVED ROUTES
-| -------------------------------------------------------------------------
-|
-| There are three reserved routes:
-|
-|	$route['default_controller'] = 'welcome';
-|
-| This route indicates which controller class should be loaded if the
-
 */
+
 $route['admin-login']='admin';
 $route['admin-login-check']='admin/admin_login_check';
 $route['home-page']='home';
@@ -46,8 +30,9 @@ $route['unpublish-category/(.+)']='Super_admin/unpublish_category/$1';
 $route['publish-category/(.+)']='Super_admin/publish_category/$1';
 //delete category
 $route['delete-category/(.+)']='Super_admin/delete_category/$1';
-//edite category
-$route['edit-category']='Super_admin/edit_category';
+//edit category
+$route['edit-category/(.+)']='Super_admin/edit_category/$1';
+//
 
 //Add brand
 $route['add-brand']="Super_admin/add_brand";

@@ -66,10 +66,10 @@ class Super_admin extends CI_Controller {
         redirect('/manage-category'); 
     }
     //Edit Category    
-    public function edit_category(){        
+    public function edit_category($category_id){         
         $data=array();
-        // $data['all_category_info']=$this->Super_admin_model->show_all_category_info();
-        $data['admin_main_contents']=$this->load->view('admin/pages/edit_category.php','',true);
+        $data['category_info']=$this->Super_admin_model->select_category_id($category_id);
+        $data['admin_main_contents']=$this->load->view('admin/pages/edit_category.php',$data,true);
         $this->load->view('admin/adminmaster',$data); 
     }
 

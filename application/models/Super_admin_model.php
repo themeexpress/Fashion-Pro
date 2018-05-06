@@ -28,6 +28,14 @@ class Super_admin_model extends CI_model {
 		$query_result=$this->db->get();		
 		return $query_result->result();
 	}
+	//Edit a categroy parameter category id
+	 public function select_category_id($category_id){
+	 	$this->db->select('*');
+	 	$this->db->from('tbl_category');
+	 	$this->db->where('category_id',$category_id);
+	 	$query_result=$this->db->get();
+	 	return $query_result->row();	 	
+	 }
 
 	//Save Band Info
 
@@ -56,8 +64,7 @@ class Super_admin_model extends CI_model {
 	public function delete_category_info($category_id){
 		$this->db->where('category_id', $category_id);
 		$this->db->delete('tbl_category');
-	}
-
+	}	
 
 	//Get all published Brands
 	public function get_published_brand_info(){
