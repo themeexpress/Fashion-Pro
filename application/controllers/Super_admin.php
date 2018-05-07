@@ -26,6 +26,8 @@ class Super_admin extends CI_Controller {
         $this->session->set_userdata($data);
         redirect('/admin-login');
     }
+
+    /*==================category Functions===============*/
     //Add category
     public function add_category(){
        $data=array();
@@ -72,8 +74,16 @@ class Super_admin extends CI_Controller {
         $data['admin_main_contents']=$this->load->view('admin/pages/edit_category.php',$data,true);
         $this->load->view('admin/adminmaster',$data); 
     }
+    //Update Category
+    public function update_category(){
+        $this->Super_admin_model->update_category_info();
+        $sdata=array();
+        $sdata['message']='Category Updated Successfully!!';
+        $this->session->set_userdata($sdata);
+        redirect('manage-category');
+    }
 
-
+/*========================Brand Functions================*/
     // Brand
      public function add_brand(){
        $data=array();
@@ -108,10 +118,27 @@ class Super_admin extends CI_Controller {
         $this->Super_admin_model->published_brand_info($brand_id);
         redirect('manage-brand');
     }
+    //Delete Brand
     public function delete_brand($brand_id){
         $this->Super_admin_model->delete_brand_info($brand_id);
         redirect('manage-brand');
 
+    }
+    //Edit Brand
+    public function edit_brand($brand_id){
+        $data=array();
+        $data['single_brand_info']=$this->Super_admin_model->single_brand_info($brand_id);
+        $data['admin_main_contents']=$this->load->view('admin/pages/edit_brands.php',$data,true);
+        $this->load->view('admin/adminmaster',$data);
+
+    }
+    //Update Brand
+    public function update_brand(){
+        $this->Super_admin_model->update_brand_info();
+        $sdata=array();
+        $sdata['message']='Brand Updated Successfully!!';
+        $this->session->set_userdata($sdata);
+        redirect('manage-brand');
     }
 
 }

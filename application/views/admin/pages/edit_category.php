@@ -36,7 +36,8 @@
 							  <label class="control-label" for="typeahead">Category Name </label>
 							  <div class="controls">
 								<input type="text" class="span6 typeahead" name="category_name" id="category_name" value="<?php echo $category_info->category_name;?>">								
-							  </div>
+								<input type="hidden" class="span6 typeahead" name="category_id"  value="<?php echo $category_info->category_id;?>">	
+							</div>
 							</div>							
          
 							<div class="control-group hidden-phone">

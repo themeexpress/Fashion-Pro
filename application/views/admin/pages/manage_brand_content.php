@@ -6,7 +6,15 @@
 				</li>
 				<li><a href="#">Brand</a></li>
 			</ul>
-
+			<h3 style="color:green">
+						<?php 
+						$message=$this->session->userdata('message');
+						if ($message) {
+							echo $message;
+							$this->session->unset_userdata('message');
+						}
+						?>
+					</h3>
 			<div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
@@ -49,7 +57,7 @@
 										<i class="halflings-icon white thumbs-up"></i> 
 									</a>
 									<?php } ?>
-									<a class="btn btn-info" href="#">
+									<a class="btn btn-info" href="<?php echo base_url()?>edit-brand/<?php echo $value_all_brand_info->brand_id;?>">
 										<i class="halflings-icon white edit"></i>  
 									</a>									
 									<a class="btn btn-danger" href="<?php echo base_url()?>delete-brand/<?php echo $value_all_brand_info->brand_id;?>">

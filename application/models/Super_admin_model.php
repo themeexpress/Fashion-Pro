@@ -36,17 +36,16 @@ class Super_admin_model extends CI_model {
 	 	$query_result=$this->db->get();
 	 	return $query_result->row();	 	
 	 }
+	 //Update Category        
+		public function update_category_info(){
+			$data=array();
+			$category_id=$this->input->post('category_id',TRUE);
+			$data['category_name']=$this->input->post('category_name',TRUE);
+			$data['category_description']=$this->input->post('category_description',TRUE);
+			$this->db->where('category_id',$category_id);
+			$this->db->update('tbl_category',$data);
+		}
 
-	//Save Band Info
-
-	public function save_brand_info(){
-		$data=array();
-		$data['brand_name']=$this->input->post('brand_name',true);
-		$data['brand_description']=$this->input->post('brand_description',true);
-		$data['publication_status']=$this->input->post('publication_status',true);
-		$this->db->insert('tbl_brand',$data);
-
-	}
 	//Unpublished Category 
 	public function unpublished_category_info($category_id){
 		$this->db->set('publication_status',0);		
@@ -66,6 +65,16 @@ class Super_admin_model extends CI_model {
 		$this->db->delete('tbl_category');
 	}	
 
+	
+	/*==================Brand Query Functions==============*/
+	//Save Band Info
+	public function save_brand_info(){
+		$data=array();
+		$data['brand_name']=$this->input->post('brand_name',true);
+		$data['brand_description']=$this->input->post('brand_description',true);
+		$data['publication_status']=$this->input->post('publication_status',true);
+		$this->db->insert('tbl_brand',$data);
+	}
 	//Get all published Brands
 	public function get_published_brand_info(){
 		$this->db->select('*');
@@ -101,6 +110,23 @@ class Super_admin_model extends CI_model {
 	public function delete_brand_info($brand_id){
 		$this->db->where('brand_id', $brand_id);
 		$this->db->delete('tbl_brand');
+	}
+	//Edit Brand
+	public function single_brand_info($brand_id){
+		$this->db->select('*');
+		$this->db->from('tbl_brand');
+		$this->db->where('brand_id',$brand_id);
+		$query_result=$this->db->get();
+		return $query_result->row();
+	}
+	//Update Brand
+	public function update_brand_info(){
+		$data=array();
+		$brand_id=$this->input->post('brand_id',TRUE);
+		$data['brand_name']=$this->input->post('brand_name',TRUE);
+		$data['brand_description']=$this->input->post('brand_description',TRUE);
+		$this->db->where('brand_id',$brand_id);
+		$this->db->update('tbl_brand',$data);
 	}
 
 

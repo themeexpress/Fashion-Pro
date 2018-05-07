@@ -16,7 +16,15 @@
 				</li>
 				<li><a href="#">Category</a></li>
 			</ul>
-
+			<h3 style="color:green">
+						<?php 
+						$message=$this->session->userdata('message');
+						if ($message) {
+							echo $message;
+							$this->session->unset_userdata('message');
+						}
+						?>
+					</h3>
 			<div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
