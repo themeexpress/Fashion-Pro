@@ -140,5 +140,22 @@ class Super_admin extends CI_Controller {
         $this->session->set_userdata($sdata);
         redirect('manage-brand');
     }
+    /*=====================Product Functions==================== */
+    //Add Product
+    public function add_product(){      
+        $data=array();
+        $data['all_published_category_info']=$this->Super_admin_model->select_all_category_info();
+        $data['all_published_brand_info']=$this->Super_admin_model->select_all_brand_info();
+        $data['admin_main_contents']=$this->load->view('admin/pages/add_product.php',$data,TRUE);
+        $this->load->view('admin/adminmaster',$data); 
+    }
+    //Save product
+    public function save_product(){
+        $this->Super_admin_model->save_product_info();
+        $sdata=array();
+        $sdata['message']='Product Information saved successfully';
+        $this->session->set_userdata($sdata);
+        redirect('add-product');
+    }   
 
 }

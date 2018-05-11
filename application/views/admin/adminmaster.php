@@ -4,7 +4,7 @@
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Bootstrap Metro Dashboard by Dennis Ji for ARM demo</title>
+	<title>Shop Cart - Ecommerce website</title>
 	<meta name="description" content="Bootstrap Metro Dashboard">
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -52,8 +52,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html"><span>Metro</span></a>
-								
+				<a class="brand" href="index.html"><span>Shop Cart</span></a>								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
 					<ul class="nav pull-right">
@@ -349,6 +348,14 @@
 								<li><a class="submenu" href="<?php echo base_url();?>add-brand"><i class="icon-file-alt"></i><span class="hidden-tablet">Add Brand</span></a></li>
 								<li><a class="submenu" href="<?php echo base_url();?>manage-brand"><i class="icon-file-alt"></i><span class="hidden-tablet"> Manage Brand</span></a></li>						
 							</ul>	
+						</li>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-tasks"></i><span class="hidden-tablet"> Product Info</span></a>
+							<ul>
+								<li><a class="submenu" href="<?php echo base_url();?>add-product"><i class="icon-file-alt"></i><span class="hidden-tablet">Add Product</span></a></li>
+								<li><a class="submenu" href="<?php echo base_url();?>manage-product"><i class="icon-file-alt"></i><span class="hidden-tablet">Manage Product</span></a></li>					
+							</ul>
+
 						</li>	
 						
 						<li><a href="tasks.html"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a></li>

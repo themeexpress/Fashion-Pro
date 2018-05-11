@@ -58,6 +58,12 @@ $route['edit-brand/(.+)']='super_admin/edit_brand/$1';
 //Update Brand
 $route['update-brand']='Super_admin/update_brand';
 
+//Add product
+$route['add-product']='Super_admin/add_product';
+
+//Save product
+$route['save-product']='Super_admin/save_product';
+
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
