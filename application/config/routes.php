@@ -63,6 +63,10 @@ $route['add-product']='Super_admin/add_product';
 
 //Save product
 $route['save-product']='Super_admin/save_product';
+//manage product
+$route['manage-product']='Super_admin/manage_product';
+//delete product
+$route['delete-product/(.+)']='Super_admin/delete_product/$1';
 
 
 $route['default_controller'] = 'welcome';

@@ -151,11 +151,67 @@ class Super_admin extends CI_Controller {
     }
     //Save product
     public function save_product(){
-        $this->Super_admin_model->save_product_info();
+        $data=array();
+		$data['product_name']=$this->input->post('product_name',TRUE);
+		$data['category_id']=$this->input->post('category_id',TRUE);
+		$data['brand_id']=$this->input->post('brand_id',TRUE);
+		$data['product_short_description']=$this->input->post('product_short_description',TRUE);
+		$data['product_long_description']=$this->input->post('product_long_description',TRUE);
+		$data['product_price']=$this->input->post('product_price',TRUE);
+		$data['product_quantity']=$this->input->post('product_quantity',TRUE);
+		$data['product_sale_price']=$this->input->post('product_sale_price',TRUE);
+		$is_featured=$this->input->post('is_featured',TRUE);
+		if($is_featured==TRUE){
+		$data['is_featured']=1;
+		}else {
+			$data['is_featured']=0;
+		}
+		//product image upload
+			$fdata=array();
+			$error="";
+				$config['upload_path']          = 'uploads/';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['max_size']             = 10000;
+                $config['max_width']            = 1024;
+                $config['max_height']           = 768;
+
+                $this->load->library('upload', $config);
+
+                if ( ! $this->upload->do_upload('product_image'))
+                {
+                        $error = $this->upload->display_errors();
+
+						echo $error;
+						//$this->load->view('upload_form', $error);
+                }
+                else
+                {
+				$fdata=$this->upload->data();	
+				$data['product_image']=$config['upload_path'].$fdata['file_name'];                    
+                }
+		
+        $data['publication_status']=$this->input->post('publication_status',true);
+        		
+        $this->Super_admin_model->save_product_info($data);
         $sdata=array();
         $sdata['message']='Product Information saved successfully';
         $this->session->set_userdata($sdata);
         redirect('add-product');
     }   
+    //manage product
+    public function manage_product(){        
+        $data=array();
+        $data['products_info']=$this->Super_admin_model->show_all_products();
+        $data['admin_main_contents']=$this->load->view('admin/pages/manage_products.php',$data,true);
+        $this->load->view('admin/adminmaster',$data); 
+    }
+    //delete product
+    public function delete_product($product_id){       
+      $this->Super_admin_model->delete_product_info($product_id);
+      redirect('manage-product');
+
+
+    }
+
 
 }

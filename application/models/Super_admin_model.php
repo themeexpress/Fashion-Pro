@@ -147,34 +147,20 @@ class Super_admin_model extends CI_model {
 		$query_result=$this->db->get()->result();
 		return $query_result;	
 	}
-	public function save_product_info(){
-		$data=array();
-		$data['product_name']=$this->input->post('product_name',TRUE);
-		$data['category_id']=$this->input->post('category_id',TRUE);
-		$data['brand_id']=$this->input->post('brand_id',TRUE);
-		$data['product_short_description']=$this->input->post('product_short_description',TRUE);
-		$data['product_long_description']=$this->input->post('product_long_description',TRUE);
-		$data['product_price']=$this->input->post('product_price',TRUE);
-		$data['product_quantity']=$this->input->post('product_quantity',TRUE);
-		$data['product_sale_price']=$this->input->post('product_sale_price',TRUE);
-		$is_featured=$this->input->post('is_featured',TRUE);
-		if($is_featured==TRUE){
-		$data['is_featured']=1;
-		}else {
-			$data['is_featured']=0;
-		}
-		echo '<pre>';
-		print_r($data);
-		echo '</pre>';
-		exit();
-
-		$data['is_featured']=$this->input->post('is_featured',TRUE);
-
-		$data['publication_status']=$this->input->post('publication_status',true);
-		$this->db->insert('tbl_product',$data);
+	public function save_product_info($data){
+		$this->db->insert('tbl_product',$data);		
 
 	}
-	
+	public function show_all_products(){
+		$this->db->select('*');
+		$this->db->from('tbl_product');		
+		$query_result=$this->db->get();		
+		return $query_result->result();
 
+	}
+	public function delete_product_info($product_id){
+		$this->db->where('product_id', $product_id);
+		$this->db->delete('tbl_product');
+	}
 
 }

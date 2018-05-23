@@ -30,7 +30,7 @@
 						?>
 					</h3>
 					<div class="box-content">
-						<form class="form-horizontal" action="<?php echo base_url();?>save-product" method="POST">
+						<form class="form-horizontal" action="<?php echo base_url();?>save-product" method="POST" enctype='multipart/form-data'>
 						  <fieldset>
 							<div class="control-group">
 							  <label class="control-label" for="typeahead">Product Name </label>

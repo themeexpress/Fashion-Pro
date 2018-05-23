@@ -7,12 +7,16 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
+	public function __construct() {
+        parent::__construct();
+		$this->load->model('Welcome_model');
+	}
+	public function index()	{
 		$data=array();
 		$data['title']="Home";
+		$data['all_featured_product']=$this->Welcome_model->featured_products_info();
 		$data['slider']=$this->load->view('pages/slider','',true);
-		$data['featured_item']=$this->load->view('pages/featured_item','',true);
+		$data['featured_item']=$this->load->view('pages/featured_item',$data,true);
 		$data['category_tab']=$this->load->view('pages/category_tab','',true);
 		$data['home_left_sidebar']=$this->load->view('pages/home_left_sidebar','',true);
 		$data['recommended_item']=$this->load->view('pages/recommended_item','',true);
