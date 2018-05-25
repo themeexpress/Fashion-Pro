@@ -65,8 +65,18 @@ $route['add-product']='Super_admin/add_product';
 $route['save-product']='Super_admin/save_product';
 //manage product
 $route['manage-product']='Super_admin/manage_product';
+
+//unpublised product
+$route['unpublish-product/(.+)']='Super_admin/unpublished_product/$1';
+
+//unpublised product
+$route['publish-product/(.+)']='Super_admin/published_product/$1';
+
 //delete product
 $route['delete-product/(.+)']='Super_admin/delete_product/$1';
+
+//Edit product
+$route['edit-product/(.+)']='Super_admin/edit_product/$1';
 
 
 $route['default_controller'] = 'welcome';

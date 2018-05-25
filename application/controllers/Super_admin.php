@@ -205,11 +205,29 @@ class Super_admin extends CI_Controller {
         $data['admin_main_contents']=$this->load->view('admin/pages/manage_products.php',$data,true);
         $this->load->view('admin/adminmaster',$data); 
     }
+    //unpublished product
+    public function unpublished_product($product_id){
+        $this->Super_admin_model->unpublished_product($product_id);
+        redirect('manage-product'); 
+
+    }
+    //published a product
+    public function published_product($product_id){
+        $this->Super_admin_model->published_product($product_id);
+        redirect('manage-product'); 
+    }
     //delete product
     public function delete_product($product_id){       
       $this->Super_admin_model->delete_product_info($product_id);
       redirect('manage-product');
-
+    }
+    //Edit product
+    public function edit_product($product_id){
+        $data=array();
+        $data['products_info']=$this->Super_admin_model->single_product_info($product_id);
+        $data['admin_main_contents']=$this->load->view('admin/pages/edit_product.php',$data,true);
+        $this->load->view('admin/adminmaster',$data); 
+    
 
     }
 

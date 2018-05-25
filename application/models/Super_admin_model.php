@@ -158,9 +158,29 @@ class Super_admin_model extends CI_model {
 		return $query_result->result();
 
 	}
+	//unpublished product
+	public function unpublished_product($product_id){
+		$this->db->set('publication_status',0);
+		$this->db->where('product_id',$product_id);
+		$this->db->update('tbl_product');
+	}
+	//published product
+	public function published_product($product_id){
+		$this->db->set('publication_status',1);
+		$this->db->where('product_id',$product_id);
+		$this->db->update('tbl_product');
+	}
 	public function delete_product_info($product_id){
 		$this->db->where('product_id', $product_id);
 		$this->db->delete('tbl_product');
+	}
+	//Edit product
+	public function single_product_info($product_id){
+		$this->db->select('*');
+		$this->db->from('tbl_product');
+		$this->db->where('product_id',$product_id);
+		$query_result=$this->db->get();
+		return $query_result->row();
 	}
 
 }
