@@ -343,6 +343,14 @@
 
 						</li>
 						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Sub Category Info</span></a>
+							<ul>
+								<li><a class="submenu" href="<?php echo base_url();?>add-sub-categroy"><i class="icon-file-alt"></i><span class="hidden-tablet">Add Sub Category</span></a></li>
+								<li><a class="submenu" href="<?php echo base_url();?>manage-sub-category"><i class="icon-file-alt"></i><span class="hidden-tablet">Manage Sub Category</span></a></li>					
+							</ul>
+
+						</li>
+						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Brand Info</span></a>
 							<ul>
 								<li><a class="submenu" href="<?php echo base_url();?>add-brand"><i class="icon-file-alt"></i><span class="hidden-tablet">Add Brand</span></a></li>

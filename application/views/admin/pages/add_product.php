@@ -50,6 +50,17 @@
 							  </div>
 							</div>
 							<div class="control-group">
+							  <label class="control-label" for="typeahead">Product Sub Category</label>
+							  <div class="controls">
+								<select name="sub_cat_id">
+									<option>Select Sub Category</option>
+									<?php foreach($all_published_category_info as $all_published_category){ ?>
+									<option value="<?php echo $all_published_category->category_id;?>"><?php echo $all_published_category->category_name;?></option>	
+									<?php } ?>								
+								</select>								
+							  </div>
+							</div>
+							<div class="control-group">
 							  <label class="control-label" for="typeahead">Product Brand</label>
 							  <div class="controls">
 								<select name="brand_id">

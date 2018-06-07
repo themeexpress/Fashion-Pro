@@ -36,7 +36,6 @@ class Super_admin extends CI_Controller {
     }
 
     public function save_category(){
-
         $this->Super_admin_model->save_category_info();
         $sdata=array();
         $sdata['message']="Category Information Saved Successfully!!";
@@ -82,6 +81,23 @@ class Super_admin extends CI_Controller {
         $this->session->set_userdata($sdata);
         redirect('manage-category');
     }
+    //====================Sub Category Functions=============*/
+    public function add_sub_category(){
+        $data=array();
+        $data['all_published_category_info']=$this->Super_admin_model->select_all_category_info();
+        $data['admin_main_contents']=$this->load->view('admin/pages/add_sub_category.php',$data,true);
+        $this->load->view('admin/adminmaster',$data); 
+
+    }
+    //save sub category
+    public function save_sub_category(){
+        $this->Super_admin_model->save_sub_category_info();
+        $sdata=array();
+        $sdata['message']="Sub Category Information Saved Successfully!!";
+        $this->session->set_userdata($sdata);
+        redirect('add-sub-categroy');
+
+    }
 
 /*========================Brand Functions================*/
     // Brand
@@ -111,7 +127,6 @@ class Super_admin extends CI_Controller {
     public function unpublished_brand($brand_id){
         $this->Super_admin_model->unpublished_brand_info($brand_id);
         redirect('manage-brand');
-
     }
     //publised a brand
     public function published_brand($brand_id){

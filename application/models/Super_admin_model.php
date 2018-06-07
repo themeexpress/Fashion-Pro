@@ -65,6 +65,15 @@ class Super_admin_model extends CI_model {
 		$this->db->delete('tbl_category');
 	}	
 
+	/*==============Sub Category Functions*/
+	public function save_sub_category_info(){
+		$data=array();
+		$data['sub_cat_name']=$this->input->post('sub_cat_name',true);
+		$data['category_id']=$this->input->post('category_id',true);
+		$data['sub_cat_description']=$this->input->post('sub_cat_description',true);
+		$data['publication_status']=$this->input->post('publication_status',true);
+		$this->db->insert('sub_category',$data);
+	}
 	
 	/*==================Brand Query Functions==============*/
 	//Save Band Info

@@ -35,6 +35,15 @@ $route['edit-category/(.+)']='Super_admin/edit_category/$1';
 //Update category id hidden
 $route['update-category']='Super_admin/update_category';
 
+/* All of Sub category */
+$route['add-sub-categroy']='super_admin/add_sub_category';
+//save sub category
+$route['save-sub-category']='super_admin/save_sub_category';
+
+
+
+/* /All of Sub category */
+
 //Add brand
 $route['add-brand']="Super_admin/add_brand";
 
